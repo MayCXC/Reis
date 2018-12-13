@@ -3,6 +3,7 @@ package org.reis.game;
 import java.util.Random;
 
 public class Block {
+    // bit coordinate cube vertices and faces
     public static final int[][] vertices = {
         {0,1,0},/*_ _*/{1,1,0},
 /*      |\             |\
