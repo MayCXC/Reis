@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="lwjgl 3.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/joml-1.9.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-assimp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-glfw.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-lmdb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-lz4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-opengl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-openal.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/joml-1.9.11-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-assimp-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-glfw-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-lmdb-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-lz4-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-openal-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-opengl-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom/lwjgl-sources.jar!/" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/lib/lwjgl-release-3.2.0-custom" recursive="false" type="SOURCES" />
+  </library>
+</component>
