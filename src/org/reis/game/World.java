@@ -8,6 +8,7 @@ import java.util.List;
 public class World implements Updatable {
     private Block[][][] blocks;
     private List<Entity> entities;
+    // Fill new world with random blocks for demo
     public World() {
         blocks = new Block[16][16][16];
         for(int z=0; z<blocks.length; z++)
