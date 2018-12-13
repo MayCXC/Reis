@@ -56,13 +56,13 @@ If given a `String` input, print it as a char buffer for debugging.
 
 Read the keyboard and mouse with GLFW callbacks, and produce acceleration and inertia vectors.
 #### keyboard, mouse
-Methods called by the anonymous methods used as GLFW callbacks, called by `glfwWaitEvents` in ClientLWJGL.main
+Methods called by the anonymous methods used as GLFW callbacks, called by `glfwWaitEvents` in `ClientLWJGL.main`
 
 ------
 ### Server
 *server/Server.java*
 
-An abstract class that stores and updates the states of players and games.
+An abstract class that stores and updates the states of players and worlds.
 
 #### run
 Loop that checks if the server has quit, reads input, updates the server based on the amount of time elapsed since the last update, and writes output.
