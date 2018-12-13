@@ -13,6 +13,7 @@ public class ClientLWJGL extends Client implements AutoCloseable {
     private long window;
     private GLFWErrorCallback errorCallback;
 
+    // Make GLFW allocations
     private ClientLWJGL( ) {
         super( );
 
@@ -31,6 +32,7 @@ public class ClientLWJGL extends Client implements AutoCloseable {
     private KeyboardMouseController controller;
     private ImmediateModeRenderer renderer;
 
+    // Attach GLFW callbacks to the keyboard and mouse controller
     @Override
     public void run( ) {
         controller = new KeyboardMouseController();
@@ -39,9 +41,9 @@ public class ClientLWJGL extends Client implements AutoCloseable {
             if ( key == GLFW_KEY_ESCAPE && act == GLFW_PRESS )
                 glfwSetWindowShouldClose( window, true );
         } ) );
-        glfwSetCursorPosCallback( window, GLFWCursorPosCallback.create( (win,x,y) -> {
-            controller.mouse(x,y);
-        } ) );
+        glfwSetCursorPosCallback( window, GLFWCursorPosCallback.create( (win,x,y) ->
+            controller.mouse(x,y)
+        ) );
 
         glfwMakeContextCurrent( window );
         glfwSwapInterval( 1 );
@@ -51,6 +53,7 @@ public class ClientLWJGL extends Client implements AutoCloseable {
         super.run();
     }
 
+    // Quit when the OS closes the GLFW window
     @Override
     protected boolean quit( ) {
         return glfwWindowShouldClose( window );
@@ -63,11 +66,13 @@ public class ClientLWJGL extends Client implements AutoCloseable {
         controller.turn.zero();
     }
 
+    // Read time since glfwInit
     @Override
     protected double time() {
         return glfwGetTime();
     }
 
+    // Clear window buffer, transform frame to player, print debug, and swap window buffer.
     protected void output() {
         renderer.render();
         renderer.render( getPlayer( ) );
@@ -82,6 +87,7 @@ public class ClientLWJGL extends Client implements AutoCloseable {
         glfwSwapBuffers( window );
     }
 
+    // Free GLFW allocations
     @Override
     public void close( ) {
         glfwFreeCallbacks( window );
@@ -90,6 +96,7 @@ public class ClientLWJGL extends Client implements AutoCloseable {
         errorCallback.free();
     }
 
+    // Start client in a new thread, read GLFW events, center cursor.
     public static void main( String... args ) {
         try ( ClientLWJGL client = new ClientLWJGL( ) ) {
             Thread thread = new Thread( client );
