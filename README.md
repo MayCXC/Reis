@@ -62,7 +62,7 @@ Methods called by the anonymous methods used as GLFW callbacks, called by `glfwW
 ### Server
 *server/Server.java*
 
-Abstract class that stores and updates the states of players and games.
+An abstract class that stores and updates the states of players and games.
 
 #### run
 Loop that checks if the server has quit, reads input, updates the server based on the amount of time elapsed since the last update, and writes output.
