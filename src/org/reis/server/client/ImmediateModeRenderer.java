@@ -28,6 +28,7 @@ class ImmediateModeRenderer {
     private double[] eyes = new double[4*4];
     private double[] ui = new double[4*4];
 
+    // OpenGL Texture wrapper
     private class Texture2D {
         int texture, width, height;
 
@@ -54,6 +55,7 @@ class ImmediateModeRenderer {
         }
     }
 
+    // Atlas of homogeneous regions of one texture
     private class Atlas extends Texture2D {
         int sub_width, sub_height, padding;
 
@@ -67,6 +69,7 @@ class ImmediateModeRenderer {
 
     private Atlas font, face;
 
+    // Register immediate mode OpenGL capabilities and transformation matrices
     ImmediateModeRenderer() {
         GL.createCapabilities();
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -91,10 +94,12 @@ class ImmediateModeRenderer {
         }
     }
 
+    // Clear OpenGL buffer
     void render() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
+    // Transform projection matrix to player face
     void render(Player player) {
         glMatrixMode(GL_PROJECTION);
         glLoadMatrixd(eyes);
@@ -118,7 +123,8 @@ class ImmediateModeRenderer {
         glPopMatrix();
     }
 
-    void render(World world) {
+    // Render all blocks in world
+    private void render(World world) {
         render(world.getBlocks());
     }
 
@@ -159,6 +165,7 @@ class ImmediateModeRenderer {
 
     }
 
+    // Render debug text in orthographic matrix
     void render(String text) {
         render(text.getBytes(StandardCharsets.ISO_8859_1), 64);
     }
@@ -220,8 +227,8 @@ class ImmediateModeRenderer {
         int atlas_sub_texture_width = (atlas.width - atlas.padding) / (atlas.sub_width + atlas.padding);
         // int atlas_sub_texture_height = (atlas.height - atlas.padding) / (atlas.sub_height + atlas.padding);
 
-        double x = atlas.padding + (sub_texture % atlas_sub_texture_width) * (atlas.sub_width + atlas.padding);
-        double y = atlas.padding + (sub_texture / atlas_sub_texture_width) * (atlas.sub_height + atlas.padding);
+        int x = atlas.padding + (sub_texture % atlas_sub_texture_width) * (atlas.sub_width + atlas.padding);
+        int y = atlas.padding + (sub_texture / atlas_sub_texture_width) * (atlas.sub_height + atlas.padding);
 
         render(atlas, x, y, atlas.sub_width, atlas.sub_height, vertices);
     }
