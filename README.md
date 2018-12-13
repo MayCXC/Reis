@@ -9,7 +9,7 @@ Create a game client and server, create a voxel and physics engine, finish a mod
 
 ## Progress
 Client and server:
--	Java runtime single player works, no networking or local multiplayer yet.
+-	Runtime single player works, no networking or local multiplayer yet.
 
 Engine:
 -	Voxel rendering works, but is not performant.
