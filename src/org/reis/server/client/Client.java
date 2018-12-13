@@ -12,6 +12,7 @@ abstract class Client extends Server {
         return identifier;
     }
 
+    // Local multi player
     Player getPlayer( ) {
         return getPlayer( getIdentifier( ) );
     }
@@ -20,6 +21,7 @@ abstract class Client extends Server {
         super( );
         this.identifier = UUID.randomUUID( );
         putPlayer( getIdentifier( ), new Player( getWorld(0) ) );
+        // Singleton equivalent player world
         getPlayer().getWorld().addEntity( getPlayer() );
     }
 }
