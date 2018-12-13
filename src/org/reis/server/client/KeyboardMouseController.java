@@ -13,6 +13,7 @@ class KeyboardMouseController {
     Vector3d move;
     Vector2d turn;
 
+    // Convert GLFW input to physics vectors
     KeyboardMouseController() {
         senses = new TreeMap<>();
         senses.put(GLFW_KEY_S, new Vector3d(0, 0,1));
