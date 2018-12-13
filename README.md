@@ -8,14 +8,14 @@ One of the bestselling video games of all time was a voxel-based exploration gam
 Create a game client and server, create a voxel and physics engine, finish a mod API, then implement an exploration game with that API. Every part of the engine should be accessible by the API, completely decoupled, and compatible with other client and server implementations, in order to take full advantage of potential fans. (Release it for free.)
 
 ## Progress
-Client and server:
+### Client and server:
 -	Runtime single player works, no networking or local multiplayer yet.
 
-Engine:
+### Engine:
 -	Voxel rendering works, but is not performant.
 -	Physics enables player movement, floor collision, and friction.
 
-Mod API and game:
+### Mod API and game:
 -	World and player completed for engine testing, no gameplay yet.
 
 ##  Documentation
