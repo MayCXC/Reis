@@ -1,5 +1,5 @@
 # Reis
-Like in *reislust*, which means wanderlust in dutch. Originally implemented in C and pure OpenGL, now in Java with LWJGL, specifically [GLFW](https://www.glfw.org/) and [JOML](https://github.com/JOML-CI/JOML). All implementations are kept as decoupled and replaceable as possible.
+Like in *reislust*, which means wanderlust in dutch. Originally implemented in C and pure OpenGL, now in Java with [LWJGL](https://www.lwjgl.org), specifically [GLFW](https://www.glfw.org/) and [JOML](https://github.com/JOML-CI/JOML). All implementations are kept as decoupled and replaceable as possible.
 
 ## Idea
 One of the bestselling video games of all time was a voxel-based exploration game that started as a java proof of concept. Myself and many others had a great time playing it, but the amount of time and effort put into the game by its community far outmatched its original developers, who did not realize its true potential: the mod community. More and more AAA game titles are released unfinished because they do not see the potential in fan mods; instead of trying and failing to release a full game, release a proof of concept, and if it is well received immediately complete a mod API, and implement the entire game with it. (The fans handle the rest for free.)
@@ -25,7 +25,7 @@ The documentation for the client, server, and engine should be simple enough to 
 ### ClientLWJGL
 *server/client/ClientLWJGL.java*
 
-A client implementation in Java using [GLFW]( https://www.glfw.org/) with [LWJGL]( https://www.lwjgl.org/). It takes input from a keyboard and mouse, and displays output with immediate mode OpenGL.
+A client implementation in Java using [GLFW]( https://www.glfw.org/) with [LWJGL](https://www.lwjgl.org/). It takes input from a keyboard and mouse, and displays output with immediate mode OpenGL.
 #### main
 Starts a client in a new thread, reads GLFW events, and centers the cursor.
 #### run
