@@ -26,21 +26,25 @@ public class Body implements Updatable {
         orientation = new Quaterniond();
     }
 
+    // Apply force to acceleration
     public void act( Vector3d force ) {
         if(mass != 0)
         acceleration.add( new Vector3d( force ).div( mass ) );
     }
+    // Apply force to inertia
     public void act( Quaterniond force ) {
         orientation.mul( force );
     }
 
-    private void gravity( ) {
-        act( new Vector3d( 0,mass*-64.0,0 ) );
+    // Apply gravity to acceleration
+    private void gravity( double g ) {
+        act( new Vector3d( 0,mass*-g,0 ) );
     }
 
-    private void drag( ) {
+    // Apply drag to acceleration
+    private void drag( double d ) {
         act( new Vector3d( velocity )
-            .normalize( .5*velocity.lengthSquared()*2.0 )
+            .normalize( .5*velocity.lengthSquared()*d )
             .negate( )
         );
     }
@@ -59,30 +63,37 @@ public class Body implements Updatable {
     }
 
     public void update( double dt ) {
-        if( acceleration.y() <= 0 ) gravity( );
 
-        if ( velocity.lengthSquared() > 1.0/1024.0 ) drag( );
+        // Apply gravity when not flying
+        if( acceleration.y() <= 0 ) gravity(64);
+
+        // Rest slow bodies
+        if ( velocity.lengthSquared() > 1.0/1024.0 ) drag(2);
         else velocity.zero();
 
+        // Semi-implicit euler integration
         velocity.fma( dt, acceleration );
         acceleration.zero();
         position.fma( dt, velocity );
 
+        // Floor collision
         if( position.y( ) - 2 < 0 ) {
             position.y = 2;
             if( velocity.y() < 0 ) velocity.y = 0;
             if( acceleration.y() < 0 ) acceleration.y = 0;
         }
 
+        // Block collision
         Block floor = null;
         try{ floor = world.getBlocks()[(int)position.z()][(int)position.y()-2][(int)position.x()]; }
-        catch( ArrayIndexOutOfBoundsException e ){ e=null; }
+        catch( ArrayIndexOutOfBoundsException ignored ){ }
         if(floor != null) {
             position.y = Math.ceil(position.y);
             if( velocity.y() < 0 ) velocity.y = 0;
             if( acceleration.y() < 0 ) acceleration.y = 0;
         }
 
+        // Stabilize orientation quaternion
         orientation.normalize();
     }
 }
