@@ -5,7 +5,7 @@ Like in *reislust*, which means wanderlust in dutch. Originally implemented in C
 The bestselling video game of all time was a voxel-based exploration game that started as a java proof of concept. Many people had a great time playing it, but the amount of time and effort put into the game by its community far outmatched that of its original developers, who did not realize its true potential: the mod community. More and more AAA game titles are released unfinished because they do not see the potential in mod community oriented development; instead of trying and failing to release a full game, release a proof of concept, if it is well received immediately complete a mod API, then implement the entire game with it. The mod community will take care of the unfinished parts for free.
 
 ## Goals
-Create a game client and server, create a voxel and physics engine, finish a mod API, then implement an exploration game with that API. Every part of the engine should be accessible by the API, completely decoupled, and compatible with other client and server implementations, in order to take full advantage of content created by the mod community. Release it for free.
+Create a game client and server, create a voxel and physics engine, finish a mod API, then implement an exploration game with that API. Every part of the engine may be accessible to the API, completely decoupled, and compatible with other client and server implementations, in order to take full advantage of content created by the mod community. Release it for free.
 
 ## Progress
 ### Client and server:
